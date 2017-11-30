@@ -1,9 +1,19 @@
 open Yojson.Basic
 open Yojson.Basic.Util
 
+type response = {
+  status: string;
+  errors: string list;
+  ast: Astjson.structure;
+}
+[@@deriving yojson]
+
+let print_response resp =
+  resp |> response_to_yojson |> Yojson.Safe.to_string |> print_endline
+
 let _ =
-  try
-    while true do
+  while true do
+    try
       let line_json = from_string (input_line stdin) in
       let encoding = line_json |> member "encoding" |> to_string
       and content = line_json |> member "content" |> to_string in
@@ -13,9 +23,10 @@ let _ =
         | _ -> invalid_arg encoding
       in
       let ast = Parse.implementation (Lexing.from_string src) in
-      let ast_json = Astjson.structure_to_yojson ast in
-      print_endline (Yojson.Safe.to_string ast_json)
-    done
-  with
-  | End_of_file -> ()
-  | _ -> exit 1
+      print_response {status = "ok"; errors = []; ast}
+    with
+    | End_of_file -> ()
+    | e ->
+      let error = Printexc.to_string e in
+      print_response {status = "fatal"; errors = [error]; ast = []};
+  done
