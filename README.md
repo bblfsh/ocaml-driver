@@ -1,4 +1,4 @@
-# ocaml-driver  ![Driver Status](https://img.shields.io/badge/status-alpha-db975c.svg) [![Build Status](https://travis-ci.org/bblfsh/ocaml-driver.svg?branch=master)](https://travis-ci.org/bblfsh/ocaml-driver) ![Native Version](https://img.shields.io/badge/ocaml%20version-4.04.1--r0-aa93ea.svg) ![Go Version](https://img.shields.io/badge/go%20version-1.8-63afbf.svg)
+# ocaml-driver  ![Driver Status](https://img.shields.io/badge/status-pre--alpha-d6ae86.svg) [![Build Status](https://travis-ci.org/bblfsh/ocaml-driver.svg?branch=master)](https://travis-ci.org/bblfsh/ocaml-driver) ![Native Version](https://img.shields.io/badge/ocaml%20version-4.04.1--r0-aa93ea.svg) ![Go Version](https://img.shields.io/badge/go%20version-1.8-63afbf.svg)
 
 ocaml driver for [babelfish](https://github.com/bblfsh/bblfshd).
 
