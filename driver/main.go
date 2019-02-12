@@ -1,19 +1,12 @@
 package main
 
 import (
+	_ "github.com/bblfsh/ocaml-driver/driver/impl"
 	"github.com/bblfsh/ocaml-driver/driver/normalizer"
 
-	"gopkg.in/bblfsh/sdk.v1/sdk/driver"
+	"gopkg.in/bblfsh/sdk.v2/driver/server"
 )
 
 func main() {
-	d, err := driver.NewDriver(normalizer.ToNode, normalizer.Transformers)
-	if err != nil {
-		panic(err)
-	}
-
-	s := driver.NewServer(d)
-	if err := s.Start(); err != nil {
-		panic(err)
-	}
+	server.Run(normalizer.Transforms)
 }

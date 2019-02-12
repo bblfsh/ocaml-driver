@@ -1,10 +1,6 @@
+name = "ocaml"
 language = "ocaml"
 status = "pre-alpha"
-
-[documentation]
-description  = """
-ocaml driver for [babelfish](https://github.com/bblfsh/bblfshd).
-"""
 
 [runtime]
 os = "alpine"
